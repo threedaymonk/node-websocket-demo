@@ -1,7 +1,6 @@
 var http    = require('http'), 
     io      = require('socket.io'),
     sys     = require('sys'),
-    url     = require('url'),
     express = require('express');
 
 var port = 8111;
