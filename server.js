@@ -6,13 +6,13 @@ var http    = require('http'),
 var port = 8111;
 
 var server = express.createServer();
-server.use(express.staticProvider(__dirname + '/public'));
+server.use(express.static(__dirname + '/public'));
 server.use(express.errorHandler({showStack: true, dumpExceptions: true}));
 server.listen(port);
 
 var socket = io.listen(server);
 
-socket.on('connection', function(client){
+socket.sockets.on('connection', function(client){
   var connected = true;
   client.on('message', function(m){
     sys.log('Message received: '+m);
@@ -25,10 +25,15 @@ socket.on('connection', function(client){
     if (!connected) {
       return;
     }
-    client.send((new Date()) + '');
+
+    var dateTime = new Date();
+    var msg = dateTime.getHours() + ":" + dateTime.getMinutes() + ":" + dateTime.getSeconds();
+
+    console.log("Sending " + dateTime);
+    client.send(msg);
     setTimeout(tick, 1000);
   };
-
+  
   tick();
 });
 

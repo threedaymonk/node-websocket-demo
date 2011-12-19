@@ -1,5 +1,4 @@
-var socket = new io.Socket();
-socket.connect();
+var socket = io.connect();
 socket.on('connect', function(){
   $('#status').text('Connected');
 });
