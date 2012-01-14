@@ -10,4 +10,8 @@ serving, and [Socket.IO][2] for websocket support.
 Prerequisites
 -------------
 
+    npm install 
+    
+If that does not install socket.io and express, then
+
     npm install express socket.io
