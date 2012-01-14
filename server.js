@@ -27,10 +27,14 @@ socket.sockets.on('connection', function(client){
     }
 
     var dateTime = new Date();
-    var msg = dateTime.getHours() + ":" + dateTime.getMinutes() + ":" + dateTime.getSeconds();
-
+    
     console.log("Sending " + dateTime);
-    client.send(msg);
+    
+    //This will be converted to a string and sent
+    client.send(dateTime);
+    
+    //This will send an object across
+    client.emit('customEvent', {'time' : dateTime});
     setTimeout(tick, 1000);
   };
   
