@@ -4,16 +4,8 @@
   "description": "A demo of socket.io",
   "author": "Parjanya Mudunuri <parjanya@gmail.com>",
   "dependencies": {
-  	 "express": ">=2.5.2",
-    "socket.io": ">= 0.8.7",
-    "vows" : ">=0.6.1"
-  },
-  "scripts": {
-    "test": "make test"
+    "express": ">=2.5.2",
+    "socket.io": ">= 0.8.7"
   },
   "engine": "node 0.6.6"
 }
-
-"scripts": {
-    "test": "vows --spec"
-  },
