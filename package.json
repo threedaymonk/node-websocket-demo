@@ -2,7 +2,6 @@
   "name": "node-web-socket-demo",
   "version": "0.0.1",
   "description": "A demo of socket.io",
-  "author": "Parjanya Mudunuri <parjanya@gmail.com>",
   "dependencies": {
     "express": ">=2.5.2",
     "socket.io": ">= 0.8.7"
