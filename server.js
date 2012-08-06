@@ -5,22 +5,28 @@ var http    = require('http'),
 
 var port = 8111;
 
-var server = express.createServer();
-server.use(express.static(__dirname + '/public'));
-server.use(express.errorHandler({showStack: true, dumpExceptions: true}));
-server.listen(port);
+//Upgraded for express 3.x
+var app = express();
+app.use(express.static(__dirname + '/public'));
+app.use(express.errorHandler({showStack: true, dumpExceptions: true}));
 
-var socket = io.listen(server);
+//socket requires a http server
+var socket = io.listen(http.createServer(app).listen(port));
+sys.log('Started server on http://localhost:' + port + '/')
 
 socket.sockets.on('connection', function(client){
   var connected = true;
+
+  //On receiving the message event - echo to console
   client.on('message', function(m){
     sys.log('Message received: '+m);
   });
+
   client.on('disconnect', function(){
     connected = false;
   });
 
+  //Loop function that sends the current date time
   var tick = function(){
     if (!connected) {
       return;
