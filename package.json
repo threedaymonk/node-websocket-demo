@@ -1,0 +1,10 @@
+{
+  "name": "node-web-socket-demo",
+  "version": "0.0.1",
+  "description": "A demo of socket.io",
+  "dependencies": {
+    "express": ">=3.0.0rc2",
+    "socket.io": ">= 0.9.9"
+  },
+  "engine": "node 0.8.1"
+}

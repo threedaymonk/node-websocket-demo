@@ -8,3 +8,6 @@ socket.on('message', function(m){
 socket.on('disconnect', function(){
   $('#status').text('Disconnected');
 });
+socket.on('customEvent', function(message) {
+	$('#customEvent').text(message['time']);
+});
